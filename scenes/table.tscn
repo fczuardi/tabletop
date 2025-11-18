@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi3jbb5jujnjb"]
+
+[ext_resource type="Script" uid="uid://dkvgyshwfuxsr" path="res://src/table.gd" id="1_02ppr"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_02ppr"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 0.04
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02ppr"]
+albedo_color = Color(0.37, 0.1887, 0.05920001, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_02ppr"]
+size = Vector3(0.6, 0.8, 0.04)
+
+[node name="Table" type="Node3D" node_paths=PackedStringArray("seats_container", "seat_model")]
+script = ExtResource("1_02ppr")
+seats_container = NodePath("Seats")
+seat_model = NodePath("Seats/Seat 0")
+
+[node name="Top Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7065769, 0.005440733, -0.70761544, -0.0043212124, 0.9999846, 0.0033738408, 0.7076229, 0.00067388336, 0.7065897, 0, 0, 0)
+mesh = SubResource("CylinderMesh_02ppr")
+surface_material_override/0 = SubResource("StandardMaterial3D_02ppr")
+
+[node name="Seats" type="Node3D" parent="."]
+
+[node name="Seat 0" type="Node3D" parent="Seats"]
+
+[node name="Seat Mesh" type="MeshInstance3D" parent="Seats/Seat 0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3320799)
+mesh = SubResource("BoxMesh_02ppr")
+skeleton = NodePath("../../..")

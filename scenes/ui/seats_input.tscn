@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca010bh8ydbqi"]
+
+[ext_resource type="Script" uid="uid://cl758neke134v" path="res://src/ui/seats_input.gd" id="1_hd3m7"]
+
+[node name="Seats Input" type="HBoxContainer" node_paths=PackedStringArray("table", "slider", "value_label")]
+script = ExtResource("1_hd3m7")
+table = NodePath("")
+slider = NodePath("HSlider")
+value_label = NodePath("Label2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Players"
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 2.0
+max_value = 6.0
+value = 2.0
+ticks_on_borders = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+text = "0"
