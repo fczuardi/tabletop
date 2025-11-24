@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dvkb1kwagcjus"]
 
-[ext_resource type="PackedScene" uid="uid://bi3jbb5jujnjb" path="res://scenes/table.tscn" id="1_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://ca010bh8ydbqi" path="res://scenes/ui/seats_input.tscn" id="2_0wfyh"]
-[ext_resource type="Script" uid="uid://bv8kpxlbxmc6k" path="res://src/ui/current_player_input.gd" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bi3jbb5jujnjb" path="res://scenes/table.tscn" id="1_t0anw"]
+[ext_resource type="Script" uid="uid://bv8kpxlbxmc6k" path="res://src/ui/current_player_input.gd" id="2_qxxmw"]
+[ext_resource type="PackedScene" uid="uid://ca010bh8ydbqi" path="res://scenes/ui/seats_input.tscn" id="3_pcx1t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,7 +16,7 @@ background_mode = 2
 sky = SubResource("Sky_0wfyh")
 tonemap_mode = 2
 
-[node name="Main" type="Node3D"]
+[node name="Table Demo" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -25,7 +25,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_sugp2")
 
-[node name="Table" parent="." instance=ExtResource("1_0wfyh")]
+[node name="Table" parent="." instance=ExtResource("1_t0anw")]
 seats_count = 4
 
 [node name="Camera Rig" type="Node3D" parent="."]
@@ -69,7 +69,7 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Panel/MarginContainer/VBoxContainer" node_paths=PackedStringArray("table", "index_select")]
 layout_mode = 2
-script = ExtResource("3_sugp2")
+script = ExtResource("2_qxxmw")
 table = NodePath("../../../../../Table")
 index_select = NodePath("SpinBox")
 
@@ -80,6 +80,6 @@ text = "Current Player"
 [node name="SpinBox" type="SpinBox" parent="HUD/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Seats Input" parent="HUD/Panel/MarginContainer/VBoxContainer" node_paths=PackedStringArray("table") instance=ExtResource("2_0wfyh")]
+[node name="Seats Input" parent="HUD/Panel/MarginContainer/VBoxContainer" node_paths=PackedStringArray("table") instance=ExtResource("3_pcx1t")]
 layout_mode = 2
 table = NodePath("../../../../../Table")
