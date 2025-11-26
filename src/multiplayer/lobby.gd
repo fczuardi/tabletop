@@ -1,7 +1,4 @@
-extends Control
-
-@export var button_host : Button
-@export var button_client : Button
+extends Node
 
 func _ready() -> void:
     var args = Array(OS.get_cmdline_args())
