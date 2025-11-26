@@ -22,7 +22,7 @@ func host_game():
 
 func join_game():
     # WebSockets require a URL scheme (ws:// for local/http, wss:// for secure/https)
-    # If running locally, use "ws://127.0.0.1:7000"
+    # If running locally, use "ws://127.0.0.1:8910"
     var url = "ws://" + DEFAULT_SERVER_IP + ":" + str(PORT)
 
     var error = peer.create_client(url)
